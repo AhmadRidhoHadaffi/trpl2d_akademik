@@ -1,3 +1,15 @@
+<?php
+//session || cookies
+
+session_start();
+// cek login sudah ada atau belum
+
+if(!isset($_SESSION['login'])){
+    header("Location: login.php");
+}
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,17 +27,20 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="index.php?page=akademik">Akademik</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="index.php?page=mahasiswa">Data Mahasiswa</a>
-                </li>
-            </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="index.php?page=mahasiswa">Data Mahasiswa</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="index.php?page=prodi">Prodi</a>
+                    </li>
+                </ul>
+                <div class="ms-auto d-flex align-items-center ">
+                    <a href="logout.php" onclick="return confirm('Yakin ingin logout?')" class="btn btn-danger btn-sm">Logout</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -37,9 +52,14 @@
             if($page == 'mahasiswa') include 'list.php';
             if($page == 'create') include 'create.php';
             if($page == 'edit') include 'edit.php';
+            if($page == 'prodi') include 'list_prodi.php';
+            if($page == 'input') include 'input_prodi.php';
+            if($page == 'editp') include 'edit_prodi.php';
         ?>
        
     </div>
+
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
