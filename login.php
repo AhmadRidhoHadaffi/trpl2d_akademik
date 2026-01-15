@@ -50,7 +50,7 @@
                             //echo 'Login Berhasil';
                             session_start();
                             $_SESSION['login'] = TRUE;
-                            $_SESSION['login'] = $email;
+                            $_SESSION['email'] = $email;
                             header("Location: index.php");
                         }else{
                             echo 'Login Gagal';

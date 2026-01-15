@@ -22,7 +22,7 @@ if(!isset($_SESSION['login'])){
   <body style="background-color: #FAFAF4;">
     <nav class="navbar navbar-expand-lg" style="background-color: #95B2B8;">
         <div class="container">
-            <a class="navbar-brand" href="#">Akademik</a>
+            <a class="navbar-brand" href="#">🎓 Akademik</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,10 +37,31 @@ if(!isset($_SESSION['login'])){
                     <li class="nav-item">
                     <a class="nav-link" href="index.php?page=prodi">Prodi</a>
                     </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="index.php?page=profil">Profil Pengguna</a>
+                    </li>
                 </ul>
-                <div class="ms-auto d-flex align-items-center ">
-                    <a href="logout.php" onclick="return confirm('Yakin ingin logout?')" class="btn btn-danger btn-sm">Logout</a>
+                <div class="ms-auto d-flex align-items-center gap-3">
+
+                <!-- PROFIL USER -->
+                <div class="d-flex align-items-center gap-2">
+                    <span class="rounded-circle d-flex justify-content-center align-items-center"
+                        style="width:32px;height:32px;background-color:#5a7d82;color:white;">
+                        👤
+                    </span>
+                    <span class="fw-semibold text-dark">
+                        <?= $_SESSION['email']; ?>
+                    </span>
                 </div>
+
+                <!-- LOGOUT -->
+                <a href="logout.php"
+                onclick="return confirm('Yakin ingin logout?')"
+                class="btn btn-danger btn-sm">
+                    Logout
+                </a>
+            </div>
+
             </div>
         </div>
     </nav>
@@ -55,6 +76,7 @@ if(!isset($_SESSION['login'])){
             if($page == 'prodi') include 'list_prodi.php';
             if($page == 'input') include 'input_prodi.php';
             if($page == 'editp') include 'edit_prodi.php';
+            if($page == 'profil') include 'profil.php';
         ?>
        
     </div>
